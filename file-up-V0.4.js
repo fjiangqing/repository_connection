@@ -76,6 +76,7 @@ var dataServer = net.createServer(function(dataConn){
 		} catch (e) {
 			console.log(e);
 		}
+		console.log(data);
 		for (var i in users) {
 			if (i != isUser) {
 				//去除空消息
@@ -87,3 +88,59 @@ var dataServer = net.createServer(function(dataConn){
 	});
 
 }).listen(9999);
+
+
+//建立云端TCP服务，负责下载服务名称为Server
+
+//在线数计数
+var Dcount = 0;
+var downloadName = 'undefine';
+console.log('wait download new connection!\n\r');
+var downloadServer = net.createServer(function(downloadConn){
+
+	//设定编码
+	//downloadConn.setEncoding('utf8');
+	console.log('download new connection!\n\r');
+	//定义当前链接用户
+	++Dcount;
+	//文件读取计数
+	var i = 0;
+	console.log('downloadConn online:',Dcount);
+	downloadConn.on('data', function(data){
+		console.log(data.toString());
+		try {
+			var downloadOjb = JSON.parse(data);
+			console.log('downloadName:' + downloadOjb.downloadName);
+			downloadName = downloadOjb.downloadName;
+
+			// try{
+			// 	// rs.statSync(path.join(__dirname, '\\' + downloadName));
+			// 	rs.statSync(downloadName);
+			//     //如果可以执行到这里那么就表示存在了
+			//     console.log('文件存在');
+			// }catch(e){
+			// 	console.log('未知文件');
+			// 	downloadConn.end();
+			// 	return 0;
+			//     //捕获异常
+			// }
+
+			var rs = fs.createReadStream(downloadName);
+			rs.on('data',function(data){
+				downloadConn.write(data);
+				console.log('download data read:' + i);
+				++i;
+			});
+			rs.on('end',function(){
+			downloadConn.end();
+				console.log('finish download file');
+				console.log('wait download new connection!\n\r');
+				i = 0;
+			});
+		} catch (e) {
+			console.log(data.toString());
+			console.log(e);
+		}
+	});
+
+}).listen(9993);
