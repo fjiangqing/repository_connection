@@ -116,7 +116,7 @@ while(True):
     #检测土壤湿度
     t = GPIO.input(turan)
     if ((t == GPIO.LOW and ZD == 0)  or  (ZD == 1 and JS == 1)):
-        GPIO.output(relay, GPIO.HIGH)
+        GPIO.output(relay, GPIO.LOW)
         time.sleep(0.1)
         
         ## turang = 1 浇水信号
@@ -127,7 +127,8 @@ while(True):
         print (msg.encode('utf-8'))
         
     if(t == GPIO.HIGH):
-        GPIO.output(relay, GPIO.LOW)
+        
+        GPIO.output(relay, GPIO.HIGH)
         time.sleep(0.1)
         
         ## turang = 0 不浇水信号
