@@ -54,7 +54,6 @@ var informationConn = net.createServer(function(inforConn){
 						});
 						client.end();
 						client.close();
-						// inforConn.end();
 						console.log('data end');
 						i = 1;
 					});
