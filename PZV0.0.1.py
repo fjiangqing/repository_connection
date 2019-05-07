@@ -16,8 +16,8 @@ import time
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # 获取本地主机名
-host = socket.gethostname()
-# host = "192.168.137.1"
+# host = socket.gethostname()
+host = "192.168.43.197"
 # 设置端口好
 port = 9500
 # port = 8080
@@ -33,9 +33,10 @@ s.connect((host, port))
 def sysPZ():
     # 直接使用os.system调用一个echo命令  
     # 当前最新图片文件约定，now.jpg
-    #os.system("raspistill -w 600 -h 400 -t 100 -o now.jpg")
+    #os.system("rm -rf ./get-123.png")
+    #os.system("raspistill –e png -w 600 -h 400 -t 100 -o get-123.png")
     print("hello PYTHON")
-    msg = '{"uploadingName": "get-123.PNG"}'
+    msg = '{"uploadingName": "get-123.png"}'
     s.send(msg.encode('utf-8'))
     #添加链接到中转发送图片代码
 
