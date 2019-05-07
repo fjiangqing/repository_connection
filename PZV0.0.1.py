@@ -36,7 +36,7 @@ def sysPZ():
     # 当前最新图片文件约定，now.jpg
     #os.system("rm -rf ./get-123.png")
     #os.system("raspistill –e png -w 600 -h 400 -t 100 -o get-123.png")
-    print("hello PYTHON")
+    print("开始拍照")
     msg = '{"uploadingName": "get-123.png"}'
     s.send(msg.encode('utf-8'))
     #添加链接到中转发送图片代码
@@ -50,7 +50,7 @@ while 1:
     #         sysPZ()
     # except json.decoder.JSONDecodeError:
     #     print("err")
-    
+    print('拍照程序运行WHILE')
     sysPZ()
     #延时5s
     time.sleep(5)
