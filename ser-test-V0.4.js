@@ -43,6 +43,9 @@ var informationConn = net.createServer(function(inforConn){
 					//文件读取完毕
 					rs.on('end', function () {
 						//断开云端链接
+						rs.close(fd, err => {
+							console.log("关闭成功");
+						});
 						client.end();
 						console.log('data end');
 						i = 0;

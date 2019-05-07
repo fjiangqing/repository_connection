@@ -43,6 +43,7 @@ var fileServer = net.createServer(function(uploadingConn){
 	uploadingConn.on('close', function(){
 		//关闭文件
 		ws.end();
+		ws.close();
 		nameFlag = 0;
 		console.log('close uploading!');
 		console.log('wait new uploading connection!');
@@ -142,6 +143,8 @@ var downloadServer = net.createServer(function(downloadConn){
 				++i;
 			});
 			rs.on('end',function(){
+			rs.end();
+			rs.close();
 			downloadConn.end();
 				console.log('finish download file');
 				console.log('wait download new connection!\n\r');
