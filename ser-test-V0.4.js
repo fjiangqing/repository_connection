@@ -16,7 +16,7 @@ information.connect('9998', '192.168.43.197', function () {
 });
 
 var i = 1;
-
+var rs = fs.createReadStream();
 var informationConn = net.createServer(function(inforConn){
 	var client = new net.Socket();
 	inforConn.on('data', function(data){
@@ -52,8 +52,9 @@ var informationConn = net.createServer(function(inforConn){
 							if (err) throw err;
 						});
 						client.end();
+						client.close();
 						console.log('data end');
-						i =1;
+						i = 1;
 					});
 				} catch (e) {
 					console.log(e);

@@ -24,6 +24,15 @@ var fileServer = net.createServer(function(uploadingConn){
 			try {
 				var ojb = JSON.parse(data);
 				console.log('uploading name:' + ojb.uploadingName);
+				
+				fs.unlink('copy-' + ojb.uploadingName,function(error){
+					if(error){
+						console.log(error);
+						return false;
+					}
+					console.log('删除文件成功');
+				})
+				
 				uploadingName = 'copy-' + ojb.uploadingName;
 				nameFlag = 1;
 				ws = fs.createWriteStream(uploadingName);
@@ -145,14 +154,14 @@ var downloadServer = net.createServer(function(downloadConn){
 				++i;
 			});
 			rs.on('end',function(){
-			rs.end();
-			ws.close(null, (err) => {
-				if (err) throw err;
-			});
-			downloadConn.end();
-				console.log('finish download file');
-				console.log('wait download new connection!\n\r');
-				i = 0;
+				// rs.end();
+				rs.close(null, (err) => {
+					if (err) throw err;
+				});
+				downloadConn.end();
+					console.log('finish download file');
+					console.log('wait download new connection!\n\r');
+					i = 0;
 			});
 		} catch (e) {
 			console.log(data.toString());
