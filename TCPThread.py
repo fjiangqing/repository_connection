@@ -122,8 +122,8 @@ while(True):
         ## turang = 1 浇水信号
         msg = '{"turang": "1"}'
         #s.send(msg.encode('utf-8'))
-        s.send(msg.encode('utf-8'))
-        s.close()
+        # s.send(msg.encode('utf-8'))
+        # s.close()
         print (msg.encode('utf-8'))
         
     if(t == GPIO.HIGH):
@@ -133,8 +133,8 @@ while(True):
         ## turang = 0 不浇水信号
         msg = '{"turang": "0"}'
         #s.send(msg.encode('utf-8'))
-        s.send(msg.encode('utf-8'))
-        s.close()
+        # s.send(msg.encode('utf-8'))
+        # s.close()
         print (msg.encode('utf-8'))
         
     v = GPIO.input(lightPin)
