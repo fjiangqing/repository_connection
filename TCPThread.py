@@ -127,7 +127,6 @@ while(True):
         print (msg.encode('utf-8'))
         
     if(t == GPIO.HIGH):
-        
         GPIO.output(relay, GPIO.HIGH)
         time.sleep(0.1)
         
