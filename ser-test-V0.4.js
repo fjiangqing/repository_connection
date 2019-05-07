@@ -18,13 +18,14 @@ information.connect('9998', '192.168.43.197', function () {
 var i = 1;
 var rs = fs.createReadStream();
 var client = new net.Socket();
+var uploadingName;
 var informationConn = net.createServer(function(inforConn){
 	
 	inforConn.on('data', function(data){
 		try {
 			var ojb = JSON.parse(data);
 			console.log('uploadingName:' + ojb.uploadingName);
-			var uploadingName = ojb.uploadingName;
+			uploadingName = ojb.uploadingName;
 			client.connect('9998', '192.168.43.197', function () {
 				console.log('net connect');
 				client.write(data);
