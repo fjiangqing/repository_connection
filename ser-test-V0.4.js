@@ -15,6 +15,8 @@ information.connect('9998', '192.168.43.197', function () {
 	console.log('建立本地数据转发服务端口·9998,本地端口9500');
 });
 
+var i = 1;
+
 var informationConn = net.createServer(function(inforConn){
 	var client = new net.Socket();
 	inforConn.on('data', function(data){
@@ -32,7 +34,7 @@ var informationConn = net.createServer(function(inforConn){
 					var ojb = JSON.parse(data);
 					console.log('upFlag:' + ojb.upFlag);
 				 	var rs = fs.createReadStream(uploadingName);
-					var i = 1;
+					
 					//使用异步方式读取文件数据
 					rs.on('data', function (data) {
 						client.write(data);
@@ -44,12 +46,13 @@ var informationConn = net.createServer(function(inforConn){
 					rs.on('end', function () {
 						//断开云端链接
 						// 始终关闭文件描述符！
+						rs.end();
 						rs.close(null, (err) => {
 							if (err) throw err;
 						});
 						client.end();
 						console.log('data end');
-						i = 0;
+						i =1;
 					});
 				} catch (e) {
 					console.log(e);
