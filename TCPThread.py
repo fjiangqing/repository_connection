@@ -141,7 +141,7 @@ while(True):
     if (v == GPIO.LOW and JD != 30):
         #关闭光栅
         JD = 30
-        for i in range(30,150,10):
+        for i in range(30,50,2):
             p.ChangeDutyCycle(2.5 + 10 * i/180)
             time.sleep(0.02)
             p.ChangeDutyCycle(0)
@@ -150,8 +150,8 @@ while(True):
             
     if ( v == GPIO.HIGH and JD != 150):
         #打开光栅
-        JD = 150
-        for i in range(150,30,-10):
+        JD = 50
+        for i in range(50,30,-2):
             p.ChangeDutyCycle(2.5 + 10 * i/180)
             time.sleep(0.02)
             p.ChangeDutyCycle(0)
