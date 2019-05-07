@@ -68,45 +68,45 @@ time.sleep(2)
 JD = 0
 
 
-msg = "test"
-# 为线程定义一个函数
-def print_time():
-    # 创建 socket 对象
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # 获取本地主机名
-    #host = socket.gethostname()
-    host = '192.168.56.1'
-    # 设置端口好
-    port = 9500
-    # 连接服务，指定主机和端口
-    s.connect((host, port))
+# msg = "test"
+# # 为线程定义一个函数
+# def print_time():
+#     # 创建 socket 对象
+#     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     # 获取本地主机名
+#     #host = socket.gethostname()
+#     host = '192.168.56.1'
+#     # 设置端口好
+#     port = 9500
+#     # 连接服务，指定主机和端口
+#     s.connect((host, port))
     
-    while 1:
-        #s.send(msg.encode('utf-8'))
-        global msg
-        msg = s.recv(1024)
-        #time.sleep(4)
-        #print (msg)
-        #sysPZ()
-        # JSON 解析
-        #
-        #data2 = json.loads(msg)
-        #print(data2['uploadingName'])
+#     while 1:
+#         #s.send(msg.encode('utf-8'))
+#         global msg
+#         msg = s.recv(1024)
+#         #time.sleep(4)
+#         #print (msg)
+#         #sysPZ()
+#         # JSON 解析
+#         #
+#         #data2 = json.loads(msg)
+#         #print(data2['uploadingName'])
         
-    s.close()
+#     s.close()
 
-def myprint():
-    while 1:
-        print(msg)
-        time.sleep(5)
-# 创建两个线程
-try:
-    print('run')
-    _thread.start_new_thread(print_time,())
-    _thread.start_new_thread(myprint, () )
+# def myprint():
+#     while 1:
+#         print(msg)
+#         time.sleep(5)
+# # 创建两个线程
+# try:
+#     print('run')
+#     _thread.start_new_thread(print_time,())
+#     _thread.start_new_thread(myprint, () )
 
-except:
-    print ("Error: unable to start thread")
+# except:
+#     print ("Error: unable to start thread")
  
 while(True):
     

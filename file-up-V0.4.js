@@ -9,9 +9,9 @@ console.log('run server');
 //建立云端TCP服务，负责接收上传文件保存 名称为fileServer
 console.log('wait new uploading connection!');
 var nameFlag = 0;
-var i = 1;
-var fileServer = net.createServer(function(uploadingConn){
 
+var fileServer = net.createServer(function(uploadingConn){
+	var i = 1;
 	console.log('new uploading connection');
 	//建立写入文件流
 	// var ws = fs.createWriteStream(uploadingName);
