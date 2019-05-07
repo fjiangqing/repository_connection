@@ -55,6 +55,8 @@ var informationConn = net.createServer(function(inforConn){
 						});
 						client.end();
 						client.close();
+						inforConn.end();
+						inforConn.close();
 						console.log('data end');
 						i = 1;
 					});
@@ -65,5 +67,9 @@ var informationConn = net.createServer(function(inforConn){
 		} catch (e) {
 			console.log(e);
 		}
+
+		client.on('end', function(data){
+			
+		});
 	});
 }).listen(9500);

@@ -28,13 +28,13 @@ s.connect((host, port))
 
 # msg = '{"abc": "123"}'
 # s.send(msg.encode())
-
+s.connect((host, port))
 
 print("拍照运行")
 def sysPZ():
     # 连接服务，指定主机和端口
 
-    s.connect((host, port))
+    # s.connect((host, port))
     # 直接使用os.system调用一个echo命令  
     # 当前最新图片文件约定，now.jpg
     
@@ -45,7 +45,7 @@ def sysPZ():
     s.send(msg.encode('utf-8'))
     print("完成拍照")
     #添加链接到中转发送图片代码
-    s.close()
+    # s.close()
 print('拍照程序运行')
 while 1:
     # msg = s.recv(1024)
