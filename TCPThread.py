@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-import _thread
+# import _thread
 import time
 
 import sys
