@@ -138,8 +138,8 @@ while(True):
         print (msg.encode('utf-8'))
         
     v = GPIO.input(lightPin)
-    if (v == GPIO.LOW and JD != 30):
-        #关闭光栅
+    if (v == GPIO.HIGH and JD != 30):
+        #打开光栅
         JD = 30
         for i in range(30,50,2):
             p.ChangeDutyCycle(2.5 + 10 * i/180)
@@ -148,9 +148,9 @@ while(True):
             time.sleep(0.02)
             print ('out 7 LOW')
             
-            
-    if ( v == GPIO.HIGH and JD != 50):
-        #打开光栅
+
+    if ( v == GPIO.LOW and JD != 50):
+        #关闭光栅
         JD = 50
         for i in range(50,30,-2):
             p.ChangeDutyCycle(2.5 + 10 * i/180)
