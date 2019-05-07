@@ -46,6 +46,7 @@ var informationConn = net.createServer(function(inforConn){
 					rs.on('end', function () {
 						//断开云端链接
 						// 始终关闭文件描述符！
+						// rs.end();
 						rs.end();
 						rs.close(null, (err) => {
 							if (err) throw err;
