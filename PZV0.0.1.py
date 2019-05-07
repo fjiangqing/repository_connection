@@ -10,7 +10,7 @@ import socket
 import sys
 import json
 import time
-#import os  
+import os  
 
 print("拍照运行")
 # 创建 socket 对象
