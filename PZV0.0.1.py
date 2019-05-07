@@ -17,8 +17,8 @@ print("拍照运行")
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # 获取本地主机名
-# host = socket.gethostname()
-host = "192.168.43.197"
+host = socket.gethostname()
+# host = "192.168.43.197"
 # 设置端口好
 port = 9500
 # port = 8080
