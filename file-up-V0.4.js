@@ -107,8 +107,18 @@ var downloadServer = net.createServer(function(downloadConn){
 	var i = 0;
 	console.log('downloadConn online:',Dcount);
 	downloadConn.on('data', function(data){
-		console.log(data.toString());
+		console.log(data.toString())
 		try {
+			
+			for (var i in users) {
+				if (i != isUser) {
+					//去除空消息
+					if ( data != ''){
+						users[i].write(data);
+					}
+				}
+			}
+
 			var downloadOjb = JSON.parse(data);
 			console.log('downloadName:' + downloadOjb.downloadName);
 			downloadName = downloadOjb.downloadName;
