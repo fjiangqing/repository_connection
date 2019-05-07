@@ -108,8 +108,8 @@ JD = 0
 # except:
 #     print ("Error: unable to start thread")
 
-var ZD = 0
-var JS = 1
+ZD = 0
+JS = 1
 
 while(True):
     
