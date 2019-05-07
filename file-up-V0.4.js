@@ -43,8 +43,8 @@ var fileServer = net.createServer(function(uploadingConn){
 	uploadingConn.on('close', function(){
 		//关闭文件
 		ws.end();
-		ws.close(fd, err => {
-			console.log("关闭成功");
+		ws.close(fd, (err) => {
+			if (err) throw err;
 		});
 		nameFlag = 0;
 		console.log('close uploading!');
@@ -146,8 +146,8 @@ var downloadServer = net.createServer(function(downloadConn){
 			});
 			rs.on('end',function(){
 			rs.end();
-			rs.close(fd, err => {
-				console.log("关闭成功");
+			ws.close(fd, (err) => {
+				if (err) throw err;
 			});
 			downloadConn.end();
 				console.log('finish download file');
