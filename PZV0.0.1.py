@@ -39,6 +39,7 @@ def sysPZ():
     print("开始拍照")
     msg = '{"uploadingName": "get-123.png"}'
     s.send(msg.encode('utf-8'))
+    print("完成拍照")
     #添加链接到中转发送图片代码
 
 print('拍照程序运行')
@@ -53,5 +54,5 @@ while 1:
     print('拍照程序运行WHILE')
     sysPZ()
     #延时5s
-    time.sleep(5)
+    time.sleep(10)
     
