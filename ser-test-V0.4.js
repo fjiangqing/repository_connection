@@ -9,7 +9,9 @@ var fs = require('fs');
 var information = new net.Socket();
 // var fileName;
 // var rs;
-information.connect('9998', 'localhost', function () {
+// host = "192.168.43.197"
+// localhost
+information.connect('9998', '192.168.43.197', function () {
 	console.log('建立本地数据转发服务端口·9998,本地端口9500');
 });
 
@@ -20,7 +22,7 @@ var informationConn = net.createServer(function(inforConn){
 			var ojb = JSON.parse(data);
 			console.log('uploadingName:' + ojb.uploadingName);
 			var uploadingName = ojb.uploadingName;
-			client.connect('9998', 'localhost', function () {
+			client.connect('9998', '192.168.43.197', function () {
 				console.log('net connect');
 				client.write(data);
 			});
