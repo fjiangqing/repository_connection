@@ -34,7 +34,7 @@ print("拍照运行")
 def sysPZ():
     # 直接使用os.system调用一个echo命令  
     # 当前最新图片文件约定，now.jpg
-    os.system("rm -r get-123.png")
+    os.system("rm -r ./get-123.png")
     os.system("raspistill -e png -w 600 -h 400 -t 1 -o get-123.png")
     print("开始拍照")
     msg = '{"uploadingName": "get-123.png"}'
