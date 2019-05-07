@@ -35,7 +35,7 @@ host = "127.0.0.1"
 port = 9500
 
 # 连接服务，指定主机和端口
-s.connect((host, port))
+# s.connect((host, port))
 
 
 #设定GPIO 使用板物理引脚模式
