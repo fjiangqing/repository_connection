@@ -148,7 +148,7 @@ while(True):
             time.sleep(0.02)
             print ('out 7 LOW')
             
-    if ( v == GPIO.HIGH and JD != 150):
+    if ( v == GPIO.HIGH and JD != 50):
         #打开光栅
         JD = 50
         for i in range(50,30,-2):
