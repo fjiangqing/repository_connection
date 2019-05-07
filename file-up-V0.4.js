@@ -8,6 +8,8 @@ var uploadingName = 'undefine';
 console.log('run server');
 //建立云端TCP服务，负责接收上传文件保存 名称为fileServer
 console.log('wait new uploading connection!');
+var nameFlag = 0;
+var i = 1;
 var fileServer = net.createServer(function(uploadingConn){
 
 	console.log('new uploading connection');
@@ -15,9 +17,9 @@ var fileServer = net.createServer(function(uploadingConn){
 	// var ws = fs.createWriteStream(uploadingName);
 	var ws;
 	console.log('fs.createWriteStream(uploadingName)');
-	var i = 1;
+	
 
-	var nameFlag = 0;
+	
 	//从网络链接接受数据
 	uploadingConn.on('data', function(data){
 		if(nameFlag == 0){
@@ -32,7 +34,7 @@ var fileServer = net.createServer(function(uploadingConn){
 					}
 					console.log('删除文件成功');
 				})
-				
+
 				uploadingName = 'copy-' + ojb.uploadingName;
 				nameFlag = 1;
 				ws = fs.createWriteStream(uploadingName);
@@ -56,6 +58,7 @@ var fileServer = net.createServer(function(uploadingConn){
 			if (err) throw err;
 		});
 		nameFlag = 0;
+		i = 1;
 		console.log('close uploading!');
 		console.log('wait new uploading connection!');
 	})

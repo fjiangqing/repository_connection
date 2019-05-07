@@ -32,8 +32,12 @@ s.connect((host, port))
 
 print("拍照运行")
 def sysPZ():
+    # 连接服务，指定主机和端口
+
+    s.connect((host, port))
     # 直接使用os.system调用一个echo命令  
     # 当前最新图片文件约定，now.jpg
+    
     os.system("rm -r ./get-123.png")
     os.system("raspistill -e png -w 600 -h 400 -t 1 -o get-123.png")
     print("开始拍照")
@@ -41,7 +45,7 @@ def sysPZ():
     s.send(msg.encode('utf-8'))
     print("完成拍照")
     #添加链接到中转发送图片代码
-
+    s.close()
 print('拍照程序运行')
 while 1:
     # msg = s.recv(1024)
@@ -54,5 +58,5 @@ while 1:
     print('拍照程序运行WHILE')
     sysPZ()
     #延时5s
-    time.sleep(10)
+    time.sleep(5)
     
