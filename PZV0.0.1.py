@@ -12,6 +12,7 @@ import json
 import time
 #import os  
 
+print("拍照运行")
 # 创建 socket 对象
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
