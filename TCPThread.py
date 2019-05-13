@@ -117,7 +117,7 @@ while(True):
     t = GPIO.input(turan)
     if ((t == GPIO.LOW and ZD == 0)  or  (ZD == 1 and JS == 1)):
         GPIO.output(relay, GPIO.LOW)
-        time.sleep(0.1)
+        # time.sleep(0.1)
         
         ## turang = 1 浇水信号
         msg = '{"turang": "1"}'
@@ -128,7 +128,7 @@ while(True):
         
     if(t == GPIO.HIGH):
         GPIO.output(relay, GPIO.HIGH)
-        time.sleep(0.1)
+        # time.sleep(0.01)
         
         ## turang = 0 不浇水信号
         msg = '{"turang": "0"}'
