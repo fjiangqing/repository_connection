@@ -147,7 +147,7 @@ while(True):
         print (msg.encode('utf-8'))
         
     v = GPIO.input(lightPin)
-    if (v == GPIO.HIGH and JD != 80):
+    if (v == GPIO.LOW and JD != 80):
         #打开光栅
         if(GS_cnt < 100):
             GS_cnt = GS_cnt + 1
@@ -161,7 +161,7 @@ while(True):
                 print ('out 7 LOW')
          
 
-    if ( v == GPIO.LOW and JD != 20):
+    if ( v == GPIO.HIGH and JD != 20):
 
         if(GS_cnt > 0):
             GS_cnt = GS_cnt - 1
