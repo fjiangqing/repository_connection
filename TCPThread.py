@@ -112,7 +112,7 @@ ZD = 0
 JS = 1
 
 JD = 80  
-for i in range(25,80,1):
+for i in range(20,80,10):
     p.ChangeDutyCycle(2.5 + 10 * i/180)
     time.sleep(0.02)
     p.ChangeDutyCycle(0)
@@ -153,7 +153,7 @@ while(True):
             GS_cnt = GS_cnt + 1
         else:
             JD = 80  
-            for i in range(25,80,5):
+            for i in range(20,80,10):
                 p.ChangeDutyCycle(2.5 + 10 * i/180)
                 time.sleep(0.02)
                 p.ChangeDutyCycle(0)
@@ -161,14 +161,14 @@ while(True):
                 print ('out 7 LOW')
          
 
-    if ( v == GPIO.LOW and JD != 25):
+    if ( v == GPIO.LOW and JD != 20):
 
         if(GS_cnt > 0):
             GS_cnt = GS_cnt - 1
         else:
             #关闭光栅
-            JD = 25
-            for i in range(80,25,-5):
+            JD = 20
+            for i in range(80,20,-10):
                 p.ChangeDutyCycle(2.5 + 10 * i/180)
                 time.sleep(0.02)
                 p.ChangeDutyCycle(0)
