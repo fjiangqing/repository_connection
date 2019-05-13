@@ -149,7 +149,7 @@ while(True):
     v = GPIO.input(lightPin)
     if (v == GPIO.HIGH and JD != 80):
         #打开光栅
-        if(GS_cnt < 300):
+        if(GS_cnt < 150):
             GS_cnt = GS_cnt + 1
         else:
             JD = 80  
