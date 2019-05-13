@@ -112,12 +112,12 @@ ZD = 0
 JS = 1
 
 JD = 80  
-            for i in range(25,80,1):
-                p.ChangeDutyCycle(2.5 + 10 * i/180)
-                time.sleep(0.02)
-                p.ChangeDutyCycle(0)
-                time.sleep(0.02)
-                print ('out 7 LOW')
+for i in range(25,80,1):
+    p.ChangeDutyCycle(2.5 + 10 * i/180)
+    time.sleep(0.02)
+    p.ChangeDutyCycle(0)
+    time.sleep(0.02)
+    print ('out 7 LOW')
 
 GS_cnt = 0
 while(True):
