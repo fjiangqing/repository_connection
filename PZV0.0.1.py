@@ -24,11 +24,11 @@ port = 9500
 # port = 8080
 
 # 连接服务，指定主机和端口
-s.connect((host, port))
+# s.connect((host, port))
 
-# msg = '{"abc": "123"}'
-# s.send(msg.encode())
-s.connect((host, port))
+# # msg = '{"abc": "123"}'
+# # s.send(msg.encode())
+# s.connect((host, port))
 
 print("拍照运行")
 def sysPZ():
