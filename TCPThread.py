@@ -141,7 +141,7 @@ while(True):
     v = GPIO.input(lightPin)
     if (v == GPIO.HIGH and JD != 80):
         #打开光栅
-        if(GS_cnt < 200):
+        if(GS_cnt < 100):
             GS_cnt = GS_cnt + 1
         else:
             JD = 80  
@@ -161,7 +161,7 @@ while(True):
         else:
             #关闭光栅
             JD = 30
-            for i in range(80,30,-1):
+            for i in range(80,25,-1):
                 p.ChangeDutyCycle(2.5 + 10 * i/180)
                 time.sleep(0.02)
                 p.ChangeDutyCycle(0)
